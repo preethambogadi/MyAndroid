@@ -1,7 +1,6 @@
 package com.example.myandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +12,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements CustomConstraintLayout.SetTextListener, CustomTextView.SetTextListener {
 
     CustomConstraintLayout constraintLayout;
-    CustomTextView customTextView;
+    CustomTextView touchConsumingTextView;
+    CustomTextView touchNotConsumingTextView;
     TextView outputTextView;
 
     @Override
@@ -22,11 +22,15 @@ public class MainActivity extends AppCompatActivity implements CustomConstraintL
         setContentView(R.layout.activity_main);
 
         constraintLayout = findViewById(R.id.activity_layout);
-        customTextView = findViewById(R.id.hello_world_text);
+        touchConsumingTextView = findViewById(R.id.touch_not_consuming_textView);
+        touchNotConsumingTextView = findViewById(R.id.touch_consuming_textView);
         outputTextView = findViewById(R.id.output_text);
 
         constraintLayout.setListener(this);
-        customTextView.setListener(this);
+        touchConsumingTextView.setListener(this);
+        touchNotConsumingTextView.setListener(this);
+
+        touchNotConsumingTextView.shouldConsumeTouchEvent(true);
     }
 
     public void setText(String text) {

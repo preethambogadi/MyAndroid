@@ -8,7 +8,9 @@ import android.view.MotionEvent;
 import androidx.appcompat.widget.AppCompatTextView;
 
 public class CustomTextView extends AppCompatTextView {
+
     private SetTextListener textListener;
+    private boolean shouldConsumeTouch = false;
 
     public CustomTextView(Context context) {
         super(context);
@@ -88,7 +90,11 @@ public class CustomTextView extends AppCompatTextView {
         boolean b = super.onTouchEvent(event);
         textListener.setText("    CustomTextView -- onTouchEvent -- end = " + b);
         Log.d("develop-", "    CustomTextView -- onTouchEvent -- end = " + b);
-        return b;
+        return shouldConsumeTouch;
+    }
+
+    public void shouldConsumeTouchEvent(boolean consumeTouch) {
+        this.shouldConsumeTouch = consumeTouch;
     }
 
     interface SetTextListener {

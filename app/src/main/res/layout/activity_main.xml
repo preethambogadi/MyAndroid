@@ -16,14 +16,26 @@
         android:textColor="@android:color/black"/>
 
     <com.example.myandroid.CustomTextView
-        android:id="@+id/hello_world_text"
+        android:id="@+id/touch_not_consuming_textView"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:text="Touch Me (TextView)"
+        android:text="(TextView) Touch Not consuming"
         android:gravity="center"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
         android:background="@android:color/holo_blue_bright"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.myandroid.CustomTextView
+        android:id="@+id/touch_consuming_textView"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="(TextView) Touch consuming"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/holo_blue_bright"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +45,7 @@
         android:minHeight="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hello_world_text"
+        app:layout_constraintTop_toBottomOf="@+id/touch_not_consuming_textView"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent">
